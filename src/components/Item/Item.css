@@ -1,0 +1,51 @@
+.item {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.item p {
+    margin: 6px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item-prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-price-new {
+    color: #374151;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.item-discount {
+    color: #444343;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.item-rating {
+    color: #444343;
+    font-size: 16px;
+    font-weight: 500;
+}
+
