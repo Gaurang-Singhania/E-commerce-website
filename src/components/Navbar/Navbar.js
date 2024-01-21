@@ -18,7 +18,7 @@ const Navbar = () => {
         <li className={activeCategory === '/' ? 'active' : ''} onClick={() => setActiveCategory('/')}><Link style={{ textDecoration: 'none' }} to='/'>Shop</Link></li>
         <li className={activeCategory === '/smartphones' ? 'active' : ''} onClick={() => setActiveCategory('/smartphones')}><Link style={{ textDecoration: 'none' }} to='/smartphones'>Smartphones</Link></li>
         <li className={activeCategory === '/laptops' ? 'active' : ''} onClick={() => setActiveCategory('/laptops')}><Link style={{ textDecoration: 'none' }} to='/laptops'>Laptops</Link></li>
-        <li className={activeCategory === '/fragnances' ? 'active' : ''} onClick={() => setActiveCategory('/fragnances')}><Link style={{ textDecoration: 'none' }} to='/fragnances'>Fragnances</Link></li>
+        <li className={activeCategory === '/furniture' ? 'active' : ''} onClick={() => setActiveCategory('/furniture')}><Link style={{ textDecoration: 'none' }} to='/furniture'>Furniture</Link></li>
         <li className={activeCategory === '/skincare' ? 'active' : ''} onClick={() => setActiveCategory('/skincare')}><Link style={{ textDecoration: 'none' }} to='/skincare'>Skincare</Link></li>
         <li className={activeCategory === '/groceries' ? 'active' : ''} onClick={() => setActiveCategory('/groceries')}><Link style={{ textDecoration: 'none' }} to='/groceries'>Groceries</Link></li>
       </ul>

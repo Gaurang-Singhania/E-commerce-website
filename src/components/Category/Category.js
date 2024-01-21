@@ -1,5 +1,7 @@
 // Category.js
 import React, { useState, useEffect } from 'react';
+import './category.css';
+
 
 const Category = ({ category }) => {
   const [products, setProducts] = useState([]);
@@ -12,7 +14,7 @@ const Category = ({ category }) => {
           throw new Error('Failed to fetch data');
         }
         const data = await response.json();
-        setProducts(data);
+        setProducts(data.products);
       } catch (error) {
         console.error(`Error fetching ${category} data:`, error); 
       }

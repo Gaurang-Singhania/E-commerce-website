@@ -1,7 +1,7 @@
 import React from 'react';
-import './Item.css';
+import './ItemComponent.css';
 
-const Item = (props) => {
+const ItemComponent = (props) => {
     return (
         <div className='item'>
             <img src={props.thumbnail} alt={props.title} />
@@ -22,4 +22,4 @@ const Item = (props) => {
     );
 };
 
-export default Item;
+export default ItemComponent;

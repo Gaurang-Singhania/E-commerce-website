@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Popular.css';
-import Item from '../Item/Item.js';
+import ItemComponent from '../Item/ItemComponent.js';
 
 const Popular = () => {
     const [products, setProducts] = useState([]);
@@ -28,19 +28,19 @@ const Popular = () => {
             <h1>POPULAR IN SMARTPHONES</h1>
             <hr />
             <div className='popular-item'>
-                {products.map((item) => (
-                    <Item
-                        key={item.id}
-                        id={item.id}
-                        name={item.title}
-                        description={item.description}
-                        price={item.price}
-                        brand={item.brand}
-                        category={item.category}
-                        thumbnail={item.thumbnail}
-                        images={item.images}
-                        discount={item.discountPercentage}
-                        rating={item.rating}
+                {products.map((product) => (
+                    <ItemComponent
+                        key={product.id}
+                        id={product.id}
+                        name={product.title}
+                        description={product.description}
+                        price={product.price}
+                        brand={product.brand}
+                        category={product.category}
+                        thumbnail={product.thumbnail}
+                        images={product.images}
+                        discount={product.discountPercentage}
+                        rating={product.rating}
                     />
                 ))}
             </div>
