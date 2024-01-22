@@ -1,6 +1,7 @@
 // Category.js
 import React, { useState, useEffect } from 'react';
 import './category.css';
+import Cart from '../Cart/Cart'
 
 const Category = ({ category }) => {
 
@@ -21,7 +22,12 @@ const Category = ({ category }) => {
     fetchProducts();
   }, [category]);
 
+  const [cart, setCart] = useState([]);
+
   const handleAddToCart = (productId) => {
+
+    const selectedProduct = products.find((product) => product.id === productId);
+    setCart((prevCart) => [...prevCart, selectedProduct]);
     console.log(`Product added to cart: ${productId}`);
   };
 
@@ -77,6 +83,7 @@ const Category = ({ category }) => {
           </button>
         ))}
       </div>
+      <Cart cart={cart} />
 
     </div>
   );
