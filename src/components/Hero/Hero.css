@@ -55,4 +55,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: translateY(70px);
+    transform: translateX(-50px);
 }

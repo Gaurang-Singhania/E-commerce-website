@@ -1,9 +1,33 @@
 import React from 'react';
 import './ItemComponent.css';
+import { motion } from 'framer-motion';
+
+const entryAnimationVariants = {
+    hidden: {
+        opacity: 0,
+        scale: 0.5, 
+        y: -50,
+    },
+    visible: {
+        opacity: 1,
+        scale: 1, 
+        y: 0, 
+        transition: {
+            duration: 0.5,
+        },
+    },
+};
+
+
 
 const ItemComponent = (props) => {
     return (
-        <div className='item'>
+        <motion.div className='item'
+            variants={entryAnimationVariants}
+            initial='hidden'
+            animate='visible'
+            transition={{ delay: props.index * 0.1 }}
+            whileHover={{ scale: 1.1 }}>
             <img src={props.thumbnail} alt={props.title} />
             <p>{props.name}</p>
             <div className='item-prices'>
@@ -18,7 +42,7 @@ const ItemComponent = (props) => {
                 </div>
 
             </div>
-        </div>
+        </motion.div>
     );
 };
 

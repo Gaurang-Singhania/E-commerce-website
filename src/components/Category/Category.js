@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import './category.css';
 import Cart from '../Cart/Cart'
+import { motion } from 'framer-motion';
 
-const Category = ({ category }) => {
+const Category = ({ category, cart, setCart }) => {
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -22,14 +23,7 @@ const Category = ({ category }) => {
     fetchProducts();
   }, [category]);
 
-  const [cart, setCart] = useState([]);
 
-  const handleAddToCart = (productId) => {
-
-    const selectedProduct = products.find((product) => product.id === productId);
-    setCart((prevCart) => [...prevCart, selectedProduct]);
-    console.log(`Product added to cart: ${productId}`);
-  };
 
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,11 +34,21 @@ const Category = ({ category }) => {
   const npage = Math.ceil(products.length / productsPerPage);
   const numbers = [...Array(npage).keys()].map((number) => number + 1);
 
+  const handleAddToCart = (product) => {
+    setCart((prevCart) => {
+      const newCart = Array.isArray(prevCart) ? [...prevCart, product] : [product];
+      return newCart;
+    });
+  };
+
   return (
     <div className='category-grid'>
       {Array.isArray(records) ? (
         records.map((product) => (
-          <div key={product.id} className='item1'>
+          <motion.div key={product.id} className='item1'
+            initial={{ opacity: 0 }} // Initially invisible
+            animate={{ opacity: 1 }} // Fade in
+            transition={{ duration: 1, ease: 'easeOut' }} >
             <img src={product.thumbnail} alt={product.title} />
             <p>{product.name}</p>
             <div className='brand-name'>
@@ -65,13 +69,16 @@ const Category = ({ category }) => {
                 {product.discountPercentage}% off
               </div>
             </div>
-            <button className='cartButton' onClick={() => handleAddToCart(product.id)}>Add to Cart</button>
-          </div>
+            <button className='cartButton' onClick={() => handleAddToCart(product)}>Add to Cart</button>
+          </motion.div>
         ))
       ) : (
         <p>No products available</p>
       )}
-      <div className='pagination'>
+      <motion.div className='pagination'
+      initial={{ opacity: 0 }} // Initially invisible
+      animate={{ opacity: 1 }} // Fade in
+      transition={{ duration: 1, ease: 'easeOut' }} >
         <p>Pages: </p>
         {numbers.map((number) => (
           <button
@@ -82,8 +89,7 @@ const Category = ({ category }) => {
             {number}
           </button>
         ))}
-      </div>
-      <Cart cart={cart} />
+      </motion.div>
 
     </div>
   );
