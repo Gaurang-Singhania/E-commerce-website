@@ -1,0 +1,150 @@
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw;
+    padding-left: 6vw;
+    padding-top: 5vw;
+}
+
+.brand-name {
+    margin: 6px 0;
+    font-size: 100px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.title-desc {
+    padding-top: 3px;
+    padding-bottom: 5px;
+}
+
+.cartButton {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cartButton:hover {
+    background-color: #45a049;
+    /* Darker green on hover */
+}
+
+.item1 {
+    width: 90%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.item1:hover {
+    transform: scale(1.05);
+}
+
+.item1 img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.item1 p {
+    margin: 6px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item1-prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item1-price-new {
+    color: #374151;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.item1-discount {
+    color: #444343;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.item1-rating {
+    color: #444343;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.pagination p {
+    margin-right: 10px;
+    margin-top: 13px;
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #2980b9;
+}
+
+.pagination button.active {
+    background-color: #2980b9;
+}
+
+@media screen and (max-width: 550px) {
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 3vw;
+        align-items: center;
+        padding-left: 6vw;
+        padding-top: 5vw;
+    }
+
+    .item1{
+        margin-left: 5vw;
+    }
+}

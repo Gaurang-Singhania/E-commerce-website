@@ -1,10 +1,12 @@
 // Category.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './category.css';
-import Cart from '../Cart/Cart'
 import { motion } from 'framer-motion';
+import { Cart } from '../Context';
 
-const Category = ({ category, cart, setCart }) => {
+const Category = ({ category }) => {
+
+  const { cart, setCart } = useContext(Cart);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,8 +37,10 @@ const Category = ({ category, cart, setCart }) => {
   const numbers = [...Array(npage).keys()].map((number) => number + 1);
 
   const handleAddToCart = (product) => {
+    console.log('Adding to cart:', product);
     setCart((prevCart) => {
       const newCart = Array.isArray(prevCart) ? [...prevCart, product] : [product];
+      console.log('New cart:', newCart);
       return newCart;
     });
   };
@@ -46,8 +50,8 @@ const Category = ({ category, cart, setCart }) => {
       {Array.isArray(records) ? (
         records.map((product) => (
           <motion.div key={product.id} className='item1'
-            initial={{ opacity: 0 }} // Initially invisible
-            animate={{ opacity: 1 }} // Fade in
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: 'easeOut' }} >
             <img src={product.thumbnail} alt={product.title} />
             <p>{product.name}</p>
@@ -76,9 +80,9 @@ const Category = ({ category, cart, setCart }) => {
         <p>No products available</p>
       )}
       <motion.div className='pagination'
-      initial={{ opacity: 0 }} // Initially invisible
-      animate={{ opacity: 1 }} // Fade in
-      transition={{ duration: 1, ease: 'easeOut' }} >
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: 'easeOut' }} >
         <p>Pages: </p>
         {numbers.map((number) => (
           <button
